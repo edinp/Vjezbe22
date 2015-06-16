@@ -8,10 +8,7 @@ public class Main {
 		
 
 		Printer p1 = new Printer();
-		System.out.println("Printed paper by " + p1.getPrinterName() + ": " + p1.printedByPrinter(p1));
-		
 		Printer p2 = new Printer("Home printer");
-//		System.out.println("Printed paper by " + p2.getPrinterName() + ": " + p2.printedByPrinter(p2));
 		
 		p1.addPaper(101);
 		p1.addInk(88);
