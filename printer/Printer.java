@@ -16,6 +16,9 @@ public class Printer {
 //		return s;
 //	}
 	
+	/**
+	 * Transforms object to String
+	 */
 	public String toString() {
 		String s = name + ":";
 		if (ink > 3 && paper > 0) {
@@ -30,6 +33,9 @@ public class Printer {
 		return s;
 	}
 	
+	/**
+	 * Constructor for printer, with Default Printer name
+	 */
 	public Printer() {
 		this.name = "Default Printer";
 		this.ink = 0;
@@ -37,6 +43,10 @@ public class Printer {
 		this.printed = 0;
 	}
 	
+	/**
+	 * Constructor for printer, without name
+	 * @param name - name to be set
+	 */
 	public Printer(String name) {
 		this.name = name;
 		this.ink = 0;
@@ -44,14 +54,26 @@ public class Printer {
 		this.printed = 0;
 	}
 	
+	/**
+	 * Returns printers name
+	 * @return
+	 */
 	public String getPrinterName() {
 		return name;
 	}
 	
+	/**
+	 * Returns number of printed pages by one printer
+	 * @return
+	 */
 	public Integer getPrinted() {
 		return printed;
 	}
 	
+	/**
+	 * Returns boolean if there is ink in one printer
+	 * @return
+	 */
 	public boolean anyInk() {
 		if (ink > 0) {
 			return true;
@@ -59,6 +81,11 @@ public class Printer {
 		return false;
 	}
 	
+	
+	/**
+	 * Returns boolean if there is paper in one printer
+	 * @return
+	 */
 	public boolean anyPaper() {
 		if (paper > 0) {
 			return true;
@@ -66,10 +93,19 @@ public class Printer {
 		return false;
 	}
 	
+	/**
+	 * Returns number of pages printed by wanted printer
+	 * @param a
+	 * @return
+	 */
 	public Integer printedByPrinter (Printer a) {
 		return printed;
 	}
 	
+	/**
+	 * Adds paper to wanted printer
+	 * @param a - number of paper pages added to printer
+	 */
 	public void addPaper (Integer a) {
 		if (a > 100) {
 			paper = 100;
@@ -80,6 +116,10 @@ public class Printer {
 		}
 	}
 	
+	/**
+	 * Adds ink to wanted printer
+	 * @param a - amount of ink added to printer
+	 */
 	public void addInk (Integer a) {
 		if (a > 100) {
 			ink = 100;
@@ -90,6 +130,12 @@ public class Printer {
 		}
 	}
 	
+	/**
+	 * Prints pages by wanted printer.
+	 * Decreases amount of ink and number of blank pages.
+	 * Also adds printed pages to sum of all printed pages by all printers.
+	 * @param a
+	 */
 	public void printPages (Integer a) {
 		if (a <= paper && a*3 <= ink) {
 			paper-=a;
@@ -108,10 +154,20 @@ public class Printer {
 		} 
 	}
 	
+	/**
+	 * Returns all printed pages by all printers
+	 * @return
+	 */
 	public static Integer getPrintedAll() {
 		return printedAll;
 	}
 	
+	/**
+	 * Returns number of available pages for print, 
+	 * depending of available amount of ink
+	 * and blank pages.
+	 * @return
+	 */
 	public Integer howManyCanPrint() {
 		if (ink/3 >= paper) {
 			return paper;
